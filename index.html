@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#fbfaff">
+    <meta name="description" content="Browse the LocalPromptly prompt library.">
+    <title>All Prompts — LocalPromptly</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="prompts-data.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="header-shell">
+      <div class="site-header">
+        <a class="brand" href="#catalog" aria-label="LocalPromptly home">
+          <span>Local<span class="brand-accent">Promptly</span></span>
+        </a>
+        <nav class="main-nav" aria-label="Main">
+          <a class="active" href="#catalog" aria-current="page">All Prompts</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="catalog-view" class="catalog-view">
+      <section id="catalog" class="catalog">
+        <h1>All Prompts</h1>
+        <p id="prompt-count" class="prompt-count" aria-live="polite">139 prompts available</p>
+
+        <div class="filter-toolbar">
+          <div class="tier-filters" role="group" aria-label="Filter by tier">
+            <button type="button" data-tier="all" class="tier-button active" aria-pressed="true">All</button>
+            <button type="button" data-tier="free" class="tier-button" aria-pressed="false">Free</button>
+            <button type="button" data-tier="premium" class="tier-button" aria-pressed="false">Premium</button>
+          </div>
+          <div class="search-sort">
+            <label class="search-field">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.6"/><path d="m13 13 4 4"/></svg>
+              <input id="search-input" type="search" placeholder="Search prompts" autocomplete="off">
+            </label>
+            <label class="sort-field">
+              <span class="sr-only">Sort prompts</span>
+              <select id="sort-select" aria-label="Sort prompts">
+                <option value="newest">Newest</option>
+                <option value="oldest">Oldest</option>
+                <option value="az">A–Z</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div id="category-filters" class="category-filters" role="group" aria-label="Filter by category"></div>
+        <div id="prompt-grid" class="prompt-grid"></div>
+        <div id="empty-state" class="empty-state" hidden>
+          <h2>No prompts found</h2>
+          <p>Try changing your search or filters.</p>
+          <button id="clear-filters" class="clear-filters" type="button">Clear filters</button>
+        </div>
+        <div class="load-more-wrap">
+          <button id="load-more" class="load-more" type="button">Load more</button>
+        </div>
+      </section>
+    </main>
+
+    <main id="detail-view" class="detail-view" hidden></main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <strong>Local<span>Promptly</span></strong>
+          <p>Prompt library</p>
+        </div>
+        <nav aria-label="Footer">
+          <a href="#catalog">All Prompts</a>
+        </nav>
+        <p class="copyright">© 2026 LocalPromptly.</p>
+      </div>
+    </footer>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
